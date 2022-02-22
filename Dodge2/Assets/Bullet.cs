@@ -9,8 +9,20 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        
+        bulletRigdbody = GetComponent<Rigidbody>();
+        bulletRigdbody.velocity = transform.forward * speed;
+        Destroy(gameObject, 3f);
+    }
+     void OnTriggerEnter(Collider other)
+    {
+        PlayerCotroller playerCotroller = other.GetComponent<PlayerCotroller>();
+
+
+        if (playerCotroller != null)
+        {
+            playerCotroller.Die();
+        }
     }
 
-   
+
 }
