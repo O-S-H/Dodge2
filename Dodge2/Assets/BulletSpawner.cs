@@ -22,6 +22,16 @@ public class BulletSpawner : MonoBehaviour
    
     void Update()
     {
-        
+        timeAfterSpawn += Time.deltaTime; //누적시간을 일정주기로 더해 갱신
+
+        if (timeAfterSpawn >= spawnRate)  // 마지막 탄알생성 누적시간이 생성주기보다 크거나 같다면
+        {
+            timeAfterSpawn = 0f;
+
+            GameObject bullet =
+                Instantiate(bulletPrefab, transform.position, transform.rotation);
+
+            bullet.transform.LookAt(target);
+        }
     }
 }

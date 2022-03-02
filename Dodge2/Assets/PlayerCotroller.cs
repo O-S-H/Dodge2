@@ -35,7 +35,7 @@ public class PlayerCotroller : MonoBehaviour
         //if (Input.GetKey(KeyCode.LeftArrow) == true)
         //{
         //    playerRigidbody.AddForce(-speed, 0f, 0f);
-        float xInput = Input.GetAxis("Horizaontal");
+        float xInput = Input.GetAxis("Horizontal");
         float zInput = Input.GetAxis("Vertical");
 
         float xSpeed = xInput * speed;
